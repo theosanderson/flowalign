@@ -4,7 +4,7 @@ import multiprocessing
 import mappy as mp
 import sys
 
-def yield_aligned(input, reference, threads):
+def yield_aligned(input, reference, threads = multiprocessing.cpu_count() ):
     aligner = helpers.get_aligner(reference)
 
     if len(aligner.seq_names) > 1:
