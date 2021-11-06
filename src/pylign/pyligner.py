@@ -4,8 +4,8 @@ import multiprocessing
 import mappy as mp
 import sys
 
-def yield_aligned(input_filename,reference_filename, threads):
-    aligner = helpers.get_aligner(reference_filename)
+def yield_aligned(input, reference, threads):
+    aligner = helpers.get_aligner(reference)
 
     if len(aligner.seq_names) > 1:
         raise ValueError("Only one reference sequence allowed")
@@ -24,7 +24,7 @@ def yield_aligned(input_filename,reference_filename, threads):
         result = functions_based_on_sam_2_fasta.get_seq_from_query(
             hits, seq, rlen, True, name)
         return name, result
-    reader = mp.fastx_read(input_filename)
+    reader = mp.fastx_read(input)
    
     if threads>1:
         pool = multiprocessing.Pool(threads)

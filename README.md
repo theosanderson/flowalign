@@ -18,7 +18,7 @@ wget https://data.nextstrain.org/files/ncov/open/global/sequences.fasta.xz &&  x
 
 Then we write a simple Python script
 ```py
-aligned = yield_aligned("wuhCor1.fa", "sequences.fasta")
+aligned = yield_aligned(input="sequences.fasta", reference= "wuhCor1.fa")
 for name, aligned_sequence in aligned:
     print(">"+name)
     print(aligned_sequence)
