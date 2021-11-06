@@ -10,19 +10,22 @@ pip install pylign
 
 
 ## Usage (Python):
-First we download the reference, and somethings to align to it:
+First we download the reference, and some unaligned sequences to align to it:
 ```bash
 wget https://hgdownload.soe.ucsc.edu/goldenPath/wuhCor1/bigZips/wuhCor1.fa.gz && gunzip wuhCor1.fa.gz
 wget https://data.nextstrain.org/files/ncov/open/global/sequences.fasta.xz &&  xz --decompress sequences.fasta.xz
 ```
 
-Then we write a simple Python script
+Then we write a simple Python script, creating an iterator called `aligned` that will yield reference-aligned versions of these unaligned sequences:
 ```py
-aligned = yield_aligned(input="sequences.fasta", reference= "wuhCor1.fa")
+import pylign
+aligned = pylign.yield_aligned(input="sequences.fasta", reference= "wuhCor1.fa")
 for name, aligned_sequence in aligned:
     print(">"+name)
     print(aligned_sequence)
 ```
+
+Under the hood, mappy is in some sense calling minimap2 mode with `--secondary=no --sam-hit-only --score-N=0 -x asm20`.
 
 Note that the multiprocessing implementation is fairly hacky which may cause issues. Expected use is that this function will be only called once, and certainly only once at any particular time.
 
