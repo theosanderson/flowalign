@@ -1,5 +1,3 @@
-# THIS IS NOT WORKING YET - DO NOT USE
-
 # Pylign
 
 Pylign is an experimental package to simplify realignment to a reference for viral sequences, using only Python packages. This package is developed by me, but it owes almost everything to [sam_2_fasta](https://github.com/cov-ert/datafunk/blob/master/datafunk/sam_2_fasta.py) by [Ben Jackson](https://github.com/benjamincjackson) at the Univesity of Edinburgh. (Sam2fasta has since been ported to [gofasta](https://github.com/cov-ert/gofasta)). Sam2fasta is typically run on a SAM file from `minimap2`. Pylign incorporates the alignment process, using [mappy](https://pypi.org/project/mappy/). The idea is that one doesn't need any dependencies except Python packages (mappy supplies its own minimap2).
