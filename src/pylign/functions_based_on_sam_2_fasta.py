@@ -76,12 +76,10 @@ def get_one_string(hit, qseq, rlen):
     POS = hit.r_st 
 
     # Query seq:
-    SEQ = qseq
+    SEQ = qseq[hit.q_st:hit.q_en] #this is where mappy works differently to
+                                  #minimap2 which would do softclipping with "S"
 
-    # According to the SAM spec:
-    # "If POS < 1, unmapped read, no assumptions can be made about RNAME and CIGAR"
-    # But note that pysam converts POS to 0-based coordinates for us (as above),
-    # and -1 represent an unmapped read
+
     if POS < 0:
         return (None)
 

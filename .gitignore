@@ -1,3 +1,5 @@
 **/__pycache__/**
 **.fa
 **.gz
+src/minimap2*
+src/sequences*
