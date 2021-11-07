@@ -3,3 +3,5 @@
 **.gz
 src/minimap2*
 src/sequences*
+.venv/**
+src/test.py
