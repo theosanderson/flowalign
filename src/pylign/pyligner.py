@@ -4,6 +4,20 @@ import multiprocessing
 import mappy as mp
 import sys
 
+def fasta_parser(stream):
+    """
+    Parses a fasta file and yields tuples of (name, sequence)
+    """
+    for line in stream:
+        if line.startswith(">"):
+            name = line.strip()[1:]
+            seq = ""
+        else:
+            seq += line.strip()
+        if line.startswith(">"):
+            yield (name, seq)
+    yield (name, seq,None)
+
 def yield_aligned(input, reference, threads = multiprocessing.cpu_count() ):
     aligner = helpers.get_aligner(reference)
 
@@ -24,7 +38,12 @@ def yield_aligned(input, reference, threads = multiprocessing.cpu_count() ):
         result = functions_based_on_sam_2_fasta.get_seq_from_query(
             hits, seq, rlen, True, name)
         return name, result
-    reader = mp.fastx_read(input)
+
+    # if input type is string:
+    if isinstance(input, str):
+        reader = mp.fastx_read(input)
+    else:
+        reader = fasta_parser(input)
    
     if threads>1:
         pool = multiprocessing.Pool(threads)
