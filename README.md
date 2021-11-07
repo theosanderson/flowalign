@@ -25,6 +25,11 @@ for name, aligned_sequence in aligned:
     print(aligned_sequence)
 ```
 
+yield_aligned can also take a stream, e.g.:
+```py
+aligned = pylign.yield_aligned(input=open("sequences.fasta","rt), reference= "wuhCor1.fa")
+```
+
 Under the hood, mappy is in some sense calling minimap2 mode with `--secondary=no --sam-hit-only --score-N=0 -x asm20`.
 
 Note that the multiprocessing implementation is fairly hacky which may cause issues. Expected use is that this function will be only called once, and certainly only once at any particular time.
