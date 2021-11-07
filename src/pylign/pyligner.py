@@ -8,14 +8,16 @@ def fasta_parser(stream):
     """
     Parses a fasta file and yields tuples of (name, sequence)
     """
+    seq=""
     for line in stream:
         if line.startswith(">"):
+            if seq:
+              yield (name, seq,None)
             name = line.strip()[1:]
             seq = ""
         else:
             seq += line.strip()
-        if line.startswith(">"):
-            yield (name, seq)
+            
     yield (name, seq,None)
 
 def yield_aligned(input, reference, threads = multiprocessing.cpu_count() ):
