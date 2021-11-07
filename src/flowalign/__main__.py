@@ -3,14 +3,14 @@ import mappy as mp
 import tqdm
 from . import functions_based_on_sam_2_fasta
 from . import helpers
-from . import pyligner
+from . import flowaligner
 import sys
 
 #Create argparser
 import argparse
 
 
-yield_aligned = pyligner.yield_aligned
+yield_aligned = flowaligner.yield_aligned
     
     
 def main():
