@@ -30,7 +30,7 @@ yield_aligned can also take a stream, e.g.:
 aligned = pylign.yield_aligned(input=open("sequences.fasta","rt), reference= "wuhCor1.fa")
 ```
 
-Under the hood, mappy is in some sense calling minimap2 mode with `--secondary=no --sam-hit-only --score-N=0 -x asm20`.
+Under the hood, mappy is in some sense calling minimap2 with `--secondary=no --sam-hit-only --score-N=0 -x asm20`.
 
 Note that the multiprocessing implementation is fairly hacky which may cause issues. It is mostly expected that `yield_aligned` will be only called once at any one time.
 
