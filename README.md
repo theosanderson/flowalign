@@ -1,6 +1,6 @@
 # FlowAlign
 
-FlowAlign is an experimental package to simplify realignment to a reference for viral sequences, using only Python packages. 
+FlowAlign is a package to simplify realignment to a reference for viral sequences, using only Python packages. 
 
 ## Installation
 
