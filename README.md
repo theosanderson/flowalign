@@ -12,7 +12,7 @@ pip install flowalign
 flowalign sequences.fasta --reference wuhCor1.fa --output aligned.fa
 ```
 
-If you omit the output, output will go to STDOUT.
+If you omit the output parameter, output will go to STDOUT.
 
 ## Usage (Python):
 First we download the reference, and some unaligned sequences to align to it:
