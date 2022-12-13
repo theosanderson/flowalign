@@ -7,7 +7,12 @@ FlowAlign is an experimental package to simplify realignment to a reference for 
 ```bash
 pip install flowalign
 ```
+## Usage (command-line)
+```bash
+flowalign sequences.fasta --reference wuhCor1.fa --output aligned.fa
+```
 
+If you omit the output, output will go to STDOUT.
 
 ## Usage (Python):
 First we download the reference, and some unaligned sequences to align to it:
@@ -34,12 +39,7 @@ Under the hood, mappy is in some sense calling minimap2 with `--secondary=no --s
 
 Note that the multiprocessing implementation is fairly hacky which may cause issues. It is mostly expected that `yield_aligned` will be only called once at any one time.
 
-## Usage (command-line)
-```bash
-flowalign sequences.fasta --reference wuhCor1.fa --output aligned.fa
-```
 
-If you omit the output, output will go to STDOUT.
 
 
 ## Acknowledgements
