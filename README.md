@@ -42,7 +42,7 @@ flowalign sequences.fasta --reference wuhCor1.fa --output aligned.fa
 If you omit the output, output will go to STDOUT.
 
 
-### Acknowledgements
+## Acknowledgements
 
 This package is developed by me, but it owes almost everything to [sam_2_fasta](https://github.com/cov-ert/datafunk/blob/master/datafunk/sam_2_fasta.py) by [Ben Jackson](https://github.com/benjamincjackson) at the University of Edinburgh -- [major functions](https://github.com/theosanderson/flowalign/blob/main/src/flowalign/functions_based_on_sam_2_fasta.py) are taken from that codebase. (Ben has also ported this code to [gofasta](https://github.com/cov-ert/gofasta)). Sam2fasta is typically run on a SAM file from [minimap2](https://github.com/lh3/minimap2). flowalign incorporates the alignment process using [mappy](https://pypi.org/project/mappy/), the Python-bindings for minimap2. The idea is that one doesn't need any dependencies except Python packages (mappy supplies its own minimap2) to get aligned sequences.
 
