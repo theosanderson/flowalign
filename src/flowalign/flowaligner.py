@@ -39,6 +39,8 @@ def yield_aligned(input, reference, threads = multiprocessing.cpu_count() ):
         
         result = functions_based_on_sam_2_fasta.get_seq_from_query(
             hits, seq, rlen, True, name)
+        if result is None:
+            result = "N" * rlen
         return name, result
 
     # if input type is string:
