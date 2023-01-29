@@ -9,9 +9,10 @@ def fasta_parser(stream):
     Parses a fasta file and yields tuples of (name, sequence)
     """
     seq=""
+    name = ""
     for line in stream:
         if line.startswith(">"):
-            if seq:
+            if name and seq:
               yield (name, seq,None)
             name = line.strip()[1:]
             seq = ""

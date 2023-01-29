@@ -15,7 +15,9 @@ yield_aligned = flowaligner.yield_aligned
     
 def main():
     parser = argparse.ArgumentParser(description='Alignment')
-    parser.add_argument('input', help='Input fasta to align')
+    # input is a file, otherwise we use STDIN
+    parser.add_argument('input', help='Input fasta to align'
+                        , default=sys.stdin, nargs='?')
     parser.add_argument('--reference',
                         help='Input reference sequence',
                         required=True)
