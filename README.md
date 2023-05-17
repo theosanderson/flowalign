@@ -40,7 +40,9 @@ Under the hood, mappy is in some sense calling minimap2 with `--secondary=no --s
 Note that the multiprocessing implementation is fairly hacky which may cause issues. It is mostly expected that `yield_aligned` will be only called once at any one time.
 
 
+## By the way
 
+This may not be working on M1 macs
 
 ## Acknowledgements
 
